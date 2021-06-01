@@ -41,12 +41,12 @@ ls
 echo "git add"
 git add .
 
-echo "git status"
-git status
-
-echo "git diff-index"
-git diff-index --quiet HEAD || git commit --message "build file"
+echo "git commit"
+git commit -m "build file"
 
 echo "git push origin"
-# --set-upstream: sets de branch when pushing to a branch that does not exist
-git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME.git" --set-upstream "$TARGET_BRANCH"
+echo "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME" --set-upstream "$TARGET_BRANCH"
+
+git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME" --set-upstream "$TARGET_BRANCH"
+
+echo "success"

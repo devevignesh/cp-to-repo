@@ -2,9 +2,6 @@
 name: "Copy to repo"
 description: "Copy build files to another repository"
 inputs:
-    api-token-github:
-        description: "API gitbug token"
-        required: true
     source-directory:
         description: "Source dir"
         required: true
@@ -34,6 +31,9 @@ inputs:
         description: "commit message for the output repository."
         default: "release"
         required: false
+    api-token-github:
+        description: "API gitbug token"
+        required: true
 runs:
     using: "docker"
     image: "Dockerfile"
