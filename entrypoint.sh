@@ -14,25 +14,25 @@ TARGET_BRANCH="$7"
 COMMIT_MESSAGE="$8"
 API_TOKEN_GITHUB="$9"
 
-if [-z "$DESTINATION_REPOSITORY_USERNAME"]
-then 
-    DESTINATION_REPOSITORY_USERNAME="$DESTINATION_REPOSITORY_USERNAME"
-fi
+# if [-z "$DESTINATION_REPOSITORY_USERNAME"]
+# then 
+#     DESTINATION_REPOSITORY_USERNAME="$DESTINATION_REPOSITORY_USERNAME"
+# fi
 
-if [-z "$USER_NAME"]
-then 
-    USER_NAME="$DESTINATION_REPOSITORY_USERNAME"
-fi
+# if [-z "$USER_NAME"]
+# then 
+#     USER_NAME="$DESTINATION_REPOSITORY_USERNAME"
+# fi
 
-if [ ! -d "$SOURCE_DIRECTORY" ]
-then 
-    echo "ERROR: $SOURCE_DIRECTORY does not exist"
-fi
+# if [ ! -d "$SOURCE_DIRECTORY" ]
+# then 
+#     echo "ERROR: $SOURCE_DIRECTORY does not exist"
+# fi
 
 TARGET_DIR=$(mktemp -d)
 
 echo "Copy index.html to target git repo"
-cp "build/index" "$TARGET_DIR"
+cp "$SOURCE_DIRECTORY" "$TARGET_DIR"
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed"
