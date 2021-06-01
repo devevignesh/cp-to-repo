@@ -6,23 +6,24 @@ inputs:
         description: "API gitbug token"
         required: true
     source-directory:
-        description: "Source"
+        description: "Source dir"
         required: true
     destination-github-username:
-        description: "devevignesh"
+        description: "destination repo username"
         required: true
     destination-repository-name:
-        description: "react-hooks"
+        description: "destination repo name"
         required: true
     user-email:
         description: "vigneshe1992@gmail.com"
-        required: true
-    user-name:
-        description: "devevignesh"
         required: false
-        default: ""
+        default: "vigneshe1992@gmail.com"
+    user-name:
+        description: "user name"
+        required: false
+        default: "devevignesh"
     destination-repository-username:
-        description: "devevignesh"
+        description: "dest repo username"
         required: false
         default: ""
     target-branch:
