@@ -1,0 +1,48 @@
+# action.yml
+name: "Copy to repo"
+description: "Copy build files to another repository"
+inputs:
+    api-token-github:
+        description: "API gitbug token"
+        required: true
+    source-directory:
+        description: "Source"
+        required: true
+    destination-github-username:
+        description: "devevignesh"
+        required: true
+    destination-repository-name:
+        description: "react-hooks"
+        required: true
+    user-email:
+        description: "vigneshe1992@gmail.com"
+        required: true
+    user-name:
+        description: "devevignesh"
+        required: false
+        default: ""
+    destination-repository-username:
+        description: "devevignesh"
+        required: false
+        default: ""
+    target-branch:
+        description: 'set target branch name for the destination repository. Defaults to "master"'
+        default: "master"
+        required: false
+    commit-message:
+        description: "commit message for the output repository."
+        default: "release"
+        required: false
+runs:
+    using: "docker"
+    image: "Dockerfile"
+    args:
+        - ${{ inputs.source-directory }}
+        - ${{ inputs.destination-github-username }}
+        - ${{ inputs.destination-repository-name }}
+        - ${{ inputs.user-email }}
+        - ${{ inputs.user-name }}
+        - ${{ inputs.destination-repository-username }}
+        - ${{ inputs.target-branch }}
+        - ${{ inputs.commit-message }}
+        - ${{ inputs.api-token-github }}
