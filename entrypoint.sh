@@ -24,12 +24,24 @@ API_TOKEN_GITHUB="$9"
 #     USER_NAME="$DESTINATION_REPOSITORY_USERNAME"
 # fi
 
+CLONE_DIR=$(mktemp -d)
+
+echo "Cloning destination git repository"
+# Setup git
+git config --global user.email "$USER_EMAIL"
+git config --global user.name "$USER_NAME"
+git clone -n "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" --depth 1 "$CLONE_DIR"
+git reset HEAD
+git checkout HEAD "src/index.html"
+
+TARGET_DIR=$(mktemp -d)
+
+mv "src/index.js" "$TARGET_DIR"
+
 # if [ ! -d "$SOURCE_DIRECTORY" ]
 # then 
 #     echo "ERROR: $SOURCE_DIRECTORY does not exist"
 # fi
-
-TARGET_DIR=$(mktemp -d)
 
 echo "Copy index.html to target git repo"
 cp "$SOURCE_DIRECTORY" "$TARGET_DIR"
@@ -45,8 +57,6 @@ echo "git commit"
 git commit -m "build file"
 
 echo "git push origin"
-echo "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME" --set-upstream "$TARGET_BRANCH"
-
 git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME" --set-upstream "$TARGET_BRANCH"
 
 echo "success"
