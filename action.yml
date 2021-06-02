@@ -19,10 +19,6 @@ inputs:
         description: "user name"
         required: false
         default: "devevignesh"
-    destination-repository-username:
-        description: "dest repo username"
-        required: false
-        default: ""
     target-branch:
         description: 'set target branch name for the destination repository. Defaults to "master"'
         default: "master"
@@ -43,7 +39,6 @@ runs:
         - ${{ inputs.destination-repository-name }}
         - ${{ inputs.user-email }}
         - ${{ inputs.user-name }}
-        - ${{ inputs.destination-repository-username }}
         - ${{ inputs.target-branch }}
         - ${{ inputs.commit-message }}
         - ${{ inputs.api-token-github }}
