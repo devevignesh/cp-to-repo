@@ -2,8 +2,8 @@
 name: "Copy to repo"
 description: "Copy build files to another repository"
 inputs:
-    source-directory:
-        description: "Source dir"
+    source-file:
+        description: "Source file"
         required: true
     destination-github-username:
         description: "destination repo username"
@@ -34,7 +34,7 @@ runs:
     using: "docker"
     image: "Dockerfile"
     args:
-        - ${{ inputs.source-directory }}
+        - ${{ inputs.source-file }}
         - ${{ inputs.destination-github-username }}
         - ${{ inputs.destination-repository-name }}
         - ${{ inputs.user-email }}
