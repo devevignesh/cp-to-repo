@@ -34,15 +34,10 @@ cd "$TEMP_DIR"
 git reset HEAD
 git checkout HEAD "src/index.html"
 
-# if [ ! -d "$SOURCE_DIRECTORY" ]
-# then 
-#     echo "ERROR: $SOURCE_DIRECTORY does not exist"
-# fi
-
 echo "Copy index.html to target git repo"
 echo "$SOURCE_DIRECTORY"
 
-cp "$SOURCE_DIRECTORY" "$TEMP_DIR"/src/.
+cp "$SOURCE_DIRECTORY"/index.html "$TEMP_DIR"/src/.
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed"
