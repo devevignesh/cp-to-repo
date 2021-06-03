@@ -37,7 +37,7 @@ git checkout HEAD "src/index.html"
 echo "Copy index.html to target git repo"
 ls "$SOURCE_DIR"
 
-cp ~"$SOURCE_DIR"/index.html "$TEMP_DIR"/src/.
+cp "$SOURCE_DIR"/index.html "$TEMP_DIR"/src/.
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed"
