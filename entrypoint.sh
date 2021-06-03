@@ -35,9 +35,9 @@ git reset HEAD
 git checkout HEAD "src/index.html"
 
 echo "Copy index.html to target git repo"
-ls "$SOURCE_FILE"
+ls ~/"$SOURCE_FILE"
 
-cp "$SOURCE_FILE"/index.html "$TEMP_DIR"/src/.
+cp ~/"$SOURCE_FILE"/index.html "$TEMP_DIR"/src/.
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed"
