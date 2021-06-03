@@ -23,8 +23,6 @@ API_TOKEN_GITHUB="$8"
 #     USER_NAME="$DESTINATION_GITHUB_USERNAME"
 # fi
 
-ls
-
 TEMP_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
@@ -36,7 +34,8 @@ cd "$TEMP_DIR"
 git reset HEAD
 git checkout HEAD "src/index.html"
 
-ls
+echo "list source dir"
+cd "$SOURCE_DIR"
 
 echo "Copy index.html to target git repo"
 ls "$SOURCE_DIR"
