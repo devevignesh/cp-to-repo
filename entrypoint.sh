@@ -4,7 +4,7 @@ set -e  # if a command fails it stops the execution
 set -u  # script fails if trying to access to an undefined variable
 
 echo "starts"
-SOURCE_FILE="$1"
+SOURCE_DIR="$1"
 DESTINATION_GITHUB_USERNAME="$2"
 DESTINATION_REPOSITORY_NAME="$3"
 USER_EMAIL="$4"
@@ -35,10 +35,9 @@ git reset HEAD
 git checkout HEAD "src/index.html"
 
 echo "Copy index.html to target git repo"
-ls ~
-ls ~"$SOURCE_FILE"
+ls "$SOURCE_DIR"
 
-cp ~"$SOURCE_FILE"/index.html "$TEMP_DIR"/src/.
+cp ~"$SOURCE_DIR"/index.html "$TEMP_DIR"/src/.
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed"
